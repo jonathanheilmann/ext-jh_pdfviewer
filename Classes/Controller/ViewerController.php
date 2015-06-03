@@ -4,7 +4,7 @@ namespace TYPO3\JhPdfviewer\Controller;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *  (c) 2014-2015 Jonathan Heilmann <mail@jonathan-heilmann.de>
  *
  *  All rights reserved
  *
@@ -30,11 +30,11 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Utility\DebugUtility;
 
 /**
- *
+ * ViewerController
  *
  * @package jh_pdfviewer
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
+ * @author Jonathan Heilmann <mail@jonathan-heilmann.de>
  */
 class ViewerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	/**
@@ -47,27 +47,9 @@ class ViewerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
 	 * imgProc - instance of GraphicalFunctions
 	 *
-	 * @var object
+	 * @var \TYPO3\CMS\Core\Imaging\GraphicalFunctions
 	 */
-	private $imgProc;
-
-	/**
-	 * viewerRepository
-	 *
-	 * @var \TYPO3\JhPdfviewer\Domain\Repository\ViewerRepository
-	 * @inject
-	 */
-	protected $viewerRepository;
-
-	/**
-	 * Injects the viewerRepository
-	 *
-	 * @param \TYPO3\JhPdfviewer\Domain\Repository\ViewerRepository $viewerRepository the repository to inject
-	 * @return void
-	 */
-	public function injectViewerRepository(\TYPO3\JhPdfviewer\Domain\Repository\ViewerRepository $viewerRepository) {
-		$this->viewerRepository = $viewerRepository;
-	}
+	private $imgProc = NULL;
 
 	/**
 	 * action show
@@ -327,4 +309,3 @@ class ViewerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	}
 
 }
-?>
