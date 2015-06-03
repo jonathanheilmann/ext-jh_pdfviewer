@@ -1,0 +1,33 @@
+#customsubcategory=viewer=Viewer
+plugin.tx_jhpdfviewer {
+	view {
+		# cat=plugin.tx_jhpdfviewer/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jh_pdfviewer/Resources/Private/Templates/
+		# cat=plugin.tx_jhpdfviewer/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jh_pdfviewer/Resources/Private/Partials/
+		# cat=plugin.tx_jhpdfviewer/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jh_pdfviewer/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jhpdfviewer//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		imageNavigation {
+			## cat=plugin.tx_jhpdfviewer/viewer/0040; type=options[disabled,top,right,bottom,left]; label= Position of image navigation
+			#position = disabled
+			# cat=plugin.tx_jhpdfviewer/viewer/0040; type=options[disabled,top,bottom]; label= Position of image navigation
+			position = disabled
+		}
+		pdf {
+			# cat=plugin.tx_jhpdfviewer/viewer/0010; type=string; label= Width of output picture in px
+			width = 1024m
+			# cat=plugin.tx_jhpdfviewer/viewer/0020; type=string; label= Height of output picture in px
+			height = 768m
+			# cat=plugin.tx_jhpdfviewer/viewer/0030; type=string; label= Additional parameter of output picture (e.g. class=pdf-picture)
+			addparams =
+		}
+		# cat=plugin.tx_jhpdfviewer/viewer/0900; type=boolean; label= Add css code to make jh_pdfviewer responsive
+		addResponsiveCss = 0
+	}
+}

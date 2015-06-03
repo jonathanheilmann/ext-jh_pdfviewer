@@ -1,0 +1,40 @@
+<f:layout name="Default" />
+<f:section name="main">
+
+<f:flashMessages />
+<f:if condition="{0: pdf.displayTitle, 1: pdf.displayIndex, 2: pdf.displayNavigation} != {0: 0, 1: 0, 2: 0}">
+	<div class="pdf-header" style="width: {pdf.imgWidth}px;">
+		<f:if condition="{pdf.displayTitle}"><span class="title">{pdf.title}</span></f:if>
+		<f:if condition="{pdf.displayIndex}">
+			<span class="pagelabel"><f:translate key="page" /></span>
+			<span class="page">{pdf.actualPage}</span>
+			<span class="pageslabel"><f:translate key="of" /></span>
+			<span class="pages">{pdf.endpage}</span>
+		</f:if>
+		<f:if condition="{pdf.displayNavigation}">
+			<span class="navigation">
+				<f:format.raw value="{pdf.prevLink}" />
+				<f:format.raw value="{pdf.nextLink}" />
+			</span>
+		</f:if>
+	</div>
+</f:if>
+<f:if condition="{pdf.imageNavigation.position}!='disabled'">
+	<f:if condition="{pdf.imageNavigation.position}!='bottom'">
+		<f:render partial="ImageNavigation" arguments="{pdf:pdf}" />
+	</f:if>
+</f:if>
+<div class="pdf-image pdf-image-{pdf.uid}" style="{pdf.border.css}">
+	<f:format.raw value="{pdf.startLink}" />
+		<img src="{pdf.picurl}" width="{pdf.imgWidth}px" height="{pdf.imgHeight}px" title="{pdf.titletag}" alt="{pdf.alttag}" {pdf.additionalparams} />
+	<f:format.raw value="{pdf.endLink}" />
+</div>
+<f:if condition="{pdf.imageNavigation.position}=='bottom'">
+	<f:render partial="ImageNavigation" arguments="{pdf:pdf}" />
+</f:if>
+<f:if condition="{pdf.displayDownloadAdvice}">
+	<div class="pdf-download" style="width: {pdf.imgWidth}px;">
+		<f:translate key="download" /> <f:format.raw value="{pdf.downloadLink}" />
+	</div>
+</f:if>
+</f:section>

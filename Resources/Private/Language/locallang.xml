@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_jhpdfviewer_viewer&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="viewerParams">PDF Viewer Parameter</label>
+			<label index="pdfFile">PDF file</label>
+			<label index="createNewRelationLinkTitle">Add PDF file</label>
+			<label index="format">File format</label>
+			<label index="title">Title</label>
+			<label index="width">Width</label>
+			<label index="height">Height</label>
+			<label index="startpage">Start with page</label>
+			<label index="endpage">End with page</label>
+			<label index="hideTitle">Hide title</label>
+			<label index="hideIndex">Hide index</label>
+			<label index="hideNavigation">Hide navigation</label>
+			<label index="hideImageNavigation">Hide image navigation</label>
+			<label index="imgNavigationPos.label">Image navigation</label>
+			<label index="imgNavigationPos.ts">by TypoScript</label>
+			<label index="imgNavigationPos.disable">disable</label>
+			<label index="imgNavigationPos.top">top</label>
+			<label index="imgNavigationPos.right">right</label>
+			<label index="imgNavigationPos.bottom">bottom</label>
+			<label index="imgNavigationPos.left">left</label>
+			<label index="imgNavigationPos">Image navigation</label>
+			<label index="hideDownloadAdvice">Hide download advice</label>
+			<label index="addparams">Additional picture parameter</label>
+			<label index="imparams">IM Parameter</label>
+			<label index="linkTo.label">Link to</label>
+			<label index="linkTo.none">none (from file)</label>
+			<label index="linkTo.link2doc">Link to document</label>
+			<label index="linkTo.magnificpopup">magnificpopup</label>
+
+			<label index="prevLink">&lt; previous</label>
+			<label index="nextLink">next &gt;</label>
+
+			<label index="page">Page</label>
+			<label index="of">of</label>
+			<label index="download">Download file:</label>
+
+			<label index="mfp.tClose">Close (Esc)</label>
+			<label index="mfp.tLoading">Loading...</label>
+			<label index="mfp.gallery.tPrev">Previous (Left arrow key)</label>
+			<label index="mfp.gallery.tNext">Next (Right arrow key)</label>
+			<label index="mfp.gallery.tCounter">%curr% of %total%</label>
+			<label index="mfp.image.tError">&lt;a href=&quot;%url%&quot;&gt;The image&lt;/a&gt; could not be loaded.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="viewerParams">PDF Viewer Parameter</label>
+			<label index="pdfFile">PDF Datei</label>
+			<label index="createNewRelationLinkTitle">PDF Datei hinzufügen</label>
+			<label index="format">Dateiformat</label>
+			<label index="title">Titel</label>
+			<label index="width">Breite</label>
+			<label index="height">Höhe</label>
+			<label index="startpage">Starte mit Seite</label>
+			<label index="endpage">Ende mit Seite</label>
+			<label index="hideTitle">Titel verbergen</label>
+			<label index="hideIndex">Index verbergen</label>
+			<label index="hideNavigation">Navigation verbergen</label>
+			<label index="hideImageNavigation">Bild-Navigation verbergen</label>
+			<label index="imgNavigationPos.label">Bild-Navigation</label>
+			<label index="imgNavigationPos.ts">von TypoScript</label>
+			<label index="imgNavigationPos.disable">disable</label>
+			<label index="imgNavigationPos.top">oben</label>
+			<label index="imgNavigationPos.right">rechts</label>
+			<label index="imgNavigationPos.bottom">unten</label>
+			<label index="imgNavigationPos.left">links</label>
+			<label index="imgNavigationPos">Bild-Navigation</label>
+			<label index="hideDownloadAdvice">Download-Hinweis verbergen</label>
+			<label index="addparams">zusätzliche Bildparameter</label>
+			<label index="imparams">IM Parameter</label>
+			<label index="linkTo.label">Link zu</label>
+			<label index="linkTo.none">Nichts (von Datei)</label>
+			<label index="linkTo.link2doc">Link zum Dokument</label>
+			<label index="linkTo.magnificpopup">magnificpopup</label>
+
+			<label index="prevLink">&lt; vorherige</label>
+			<label index="nextLink">nächste &gt;</label>
+
+			<label index="page">Seite</label>
+			<label index="of">von</label>
+			<label index="download">Datei herunterladen:</label>
+
+			<label index="mfp.tClose">Schließen (Esc)</label>
+			<label index="mfp.tLoading">Laden...</label>
+			<label index="mfp.gallery.tPrev">Vorheriges (Linke Pfeil-Taste)</label>
+			<label index="mfp.gallery.tNext">Nächstes (Rechte Pfeil-Taste)</label>
+			<label index="mfp.gallery.tCounter">%curr% von %total%</label>
+			<label index="mfp.image.tError">&lt;a href=&quot;%url%&quot;&gt;Das Bild&lt;/a&gt; konnte nicht geladen werden.</label>
+		</languageKey>
+	</data>
+</T3locallang>
