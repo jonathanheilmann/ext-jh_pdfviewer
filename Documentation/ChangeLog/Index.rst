@@ -23,10 +23,24 @@ ChangeLog
          Changes
 
  - :Version:
+         0.0.3
+
+   :Changes:
+         \* [TASK] Update documentation
+
+         \* [ENHANCEMENT] #3 Clean up code
+
+         \* [BUG] #1 Missing images in image-menu
+
+         \* [ENHANCEMENT] #2 Update ext_emconf
+
+         \* [TASK] Move extension to github
+
+ - :Version:
          0.0.2
 
    :Changes:
-         \* Added extension-icon.
+         \* Added extension-icon
 
          \* Improved manual
 
@@ -34,7 +48,7 @@ ChangeLog
          0.0.1
 
    :Changes:
-         \* Initial release of extension.
+         \* Initial release of extension
 
 
 .. ### END~OF~TABLE ###

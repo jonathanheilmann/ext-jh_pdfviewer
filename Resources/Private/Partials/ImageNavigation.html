@@ -1,7 +1,7 @@
 <div class="pdf-image-navigation-wrapper" style="width: {pdf.imageNavigation.width}px;">
 	<div class="pdf-image-navigation {pdf.imageNavigation.position}" style="height:{pdf.imageNavigation.height}px; max-height:{pdf.imageNavigation.height}px; width:{pdf.imageNavigation.width}px;">
 		 <div class="scrolls {pdf.imageNavigation.position}" style="height:{pdf.imageNavigation.height}px">
-		 <div class="imagelist" style="height:{pdf.imageNavigation.height}px; max-height:{pdf.imageNavigation.height}px; width:{pdf.imageNavigation.scrolls.width}px;  max-width:{pdf.imageNavigation.scrolls.width}px;">
+		 <div class="imagelist" style="height:{pdf.imageNavigation.height}px; max-height:{pdf.imageNavigation.height}px;">
 			<f:for each="{pdf.imageNavigation.images}" as="image" key="key">
 				<f:format.raw value="{image.startLink}" />
 					<img src="{image.img}" width="{image.width}px" height="{image.height}px" title="{image.title}" alt="{image.alt}"
