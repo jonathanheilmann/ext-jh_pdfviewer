@@ -23,6 +23,14 @@ ChangeLog
          Changes
 
  - :Version:
+         1.0.0
+
+   :Changes:
+         \* Completely re-written code, template and styles (css). Please update your template and styles (css) if you modified them.
+
+         \* [TASK] Add support for TYPO3 CMS 7 LTS
+
+ - :Version:
          0.0.3
 
    :Changes:

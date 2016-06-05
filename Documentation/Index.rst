@@ -30,7 +30,7 @@ pdf viewer
 		pdf, image
 
 	:Copyright:
-		2014
+		2014-2016
 
 	:Author:
 		Jonathan Heilmann

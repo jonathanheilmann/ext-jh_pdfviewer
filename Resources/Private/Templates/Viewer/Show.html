@@ -1,40 +1,133 @@
-<f:layout name="Default" />
-<f:section name="main">
+<div xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:h="http://typo3.org/ns/Heilmann/JhPdfviewer/ViewHelpers">
+    <f:layout name="Default"/>
 
-<f:flashMessages />
-<f:if condition="{0: pdf.displayTitle, 1: pdf.displayIndex, 2: pdf.displayNavigation} != {0: 0, 1: 0, 2: 0}">
-	<div class="pdf-header" style="width: {pdf.imgWidth}px;">
-		<f:if condition="{pdf.displayTitle}"><span class="title">{pdf.title}</span></f:if>
-		<f:if condition="{pdf.displayIndex}">
-			<span class="pagelabel"><f:translate key="page" /></span>
-			<span class="page">{pdf.actualPage}</span>
-			<span class="pageslabel"><f:translate key="of" /></span>
-			<span class="pages">{pdf.endpage}</span>
-		</f:if>
-		<f:if condition="{pdf.displayNavigation}">
-			<span class="navigation">
-				<f:format.raw value="{pdf.prevLink}" />
-				<f:format.raw value="{pdf.nextLink}" />
-			</span>
-		</f:if>
-	</div>
-</f:if>
-<f:if condition="{pdf.imageNavigation.position}!='disabled'">
-	<f:if condition="{pdf.imageNavigation.position}!='bottom'">
-		<f:render partial="ImageNavigation" arguments="{pdf:pdf}" />
-	</f:if>
-</f:if>
-<div class="pdf-image pdf-image-{pdf.uid}" style="{pdf.border.css}">
-	<f:format.raw value="{pdf.startLink}" />
-		<img src="{pdf.picurl}" width="{pdf.imgWidth}px" height="{pdf.imgHeight}px" title="{pdf.titletag}" alt="{pdf.alttag}" {pdf.additionalparams} />
-	<f:format.raw value="{pdf.endLink}" />
+    <f:section name="main">
+        <f:flashMessages renderMode="div" />
+
+        <div class="container" style="width: {pdf.imgWidth}px;">
+
+            <f:comment>Header containing title, index, text-navigation</f:comment>
+            <div class="pdf-header">
+                <f:if condition="{settings.hideTitle} == 0">
+                    <f:if condition="{file.title}">
+                        <span class="title">{file.title}</span>
+                    </f:if>
+                </f:if>
+                <f:if condition="{settings.hideIndex} == 0">
+                    <f:if condition="{pdf.startpage} != {pdf.endpage}">
+                        <span class="pagelabel"><f:translate key="page"/></span>
+                        <span class="page">{pdf.actualPage}</span>
+                        <span class="pageslabel"><f:translate key="of"/></span>
+                        <span class="pages">{pdf.endpage}</span>
+                    </f:if>
+                </f:if>
+                <f:if condition="{settings.hideNavigation} == 0">
+                    <f:if condition="{pdf.startpage} != {pdf.endpage}">
+                        <span class="navigation">
+                            <f:if condition="{pdf.actualPage} == {pdf.startpage}">
+                                <f:then>
+                                    <f:translate key="prevLink" />
+                                </f:then>
+                                <f:else>
+                                    <f:link.action action="show" arguments="{uid: ttContentUid, page: '{h:subtraction(minuend: pdf.actualPage, subtrahend: 1)}'}">
+                                        <f:translate key="prevLink" />
+                                    </f:link.action>
+                                </f:else>
+                            </f:if>
+                            <f:if condition="{pdf.actualPage} == {pdf.endpage}">
+                                <f:then>
+                                    <f:translate key="nextLink" />
+                                </f:then>
+                                <f:else>
+                                    <f:link.action action="show" arguments="{uid: ttContentUid, page: '{h:sum(summands: {0: pdf.actualPage, 1: 1})}'}">
+                                        <f:translate key="nextLink" />
+                                    </f:link.action>
+                                </f:else>
+                            </f:if>
+                        </span>
+                    </f:if>
+                </f:if>
+            </div>
+
+            <f:comment>Image navigation of position is top</f:comment>
+            <f:if condition="{pdf.imageNavigation.position}=='top'">
+                <f:render partial="ImageNavigation" arguments="{pdf: pdf, ttContentUid: ttContentUid}"/>
+            </f:if>
+
+            <f:comment>Pdf as image with appropriated link</f:comment>
+            <div id="pdf-image-{ttContentUid}" class="pdf-image">
+                <f:switch expression="{settings.linkTo}">
+                    <f:case value="link2doc">
+                        <a href="{file.publicUrl}" title="{file.description}" target="_blank">
+                            <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
+                        </a>
+                    </f:case>
+                    <f:case value="mfp">
+                        <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
+                        <h:pageRenderer.addJsInlineCode name="tx_jhpdfviewer_{ttContentUid}" addToFooter="1">
+                            (function($) {
+                                $('#pdf-image-<f:comment>wake up fluid</f:comment>{ttContentUid}').magnificPopup({
+                                    items: [<h:linkToMfp file="{file}" settings="{settings}" pdfSettings="{pdf}" />],
+                                    gallery: {
+                                        enabled: true,
+                                        tPrev: '<f:translate key="mfp.gallery.tPrev" />',
+                                        tNext: '<f:translate key="mfp.gallery.tNext" />',
+                                        tCounter: '<f:translate key="mfp.gallery.tCounter" />'
+                                    },
+                                    type: 'image',
+                                    tClose: '<f:translate key="mfp.tClose" />',
+                                    tLoading: '<f:translate key="mfp.tLoading" />',
+                                    image: {
+                                        tError: '<f:translate key="mfp.image.tError" />'
+                                    },
+                                    callbacks: {
+                                        open: function() {
+                                            $.magnificPopup.instance.goTo(<h:subtraction minuend="{pdf.actualPage}" subtrahend="{pdf.startpage}" />);
+                                        }
+                                    }
+                                });
+                            })(window.jQuery);
+                        </h:pageRenderer.addJsInlineCode>
+                    </f:case>
+                    <f:case default="true">
+                        <f:if condition="{file.link}">
+                            <f:then>
+                                <f:link.typolink parameter="{file.link}">
+                                    <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
+                                </f:link.typolink>
+                            </f:then>
+                            <f:else>
+                                <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
+                            </f:else>
+                        </f:if>
+                    </f:case>
+                </f:switch>
+            </div>
+
+            <f:comment>Image navigation of position is bottom</f:comment>
+            <f:if condition="{pdf.imageNavigation.position}=='bottom'">
+                <f:render partial="ImageNavigation" arguments="{pdf: pdf, ttContentUid: ttContentUid}"/>
+            </f:if>
+
+            <f:comment>Download link in footer</f:comment>
+            <f:if condition="{settings.hideDownloadAdvice} == 0">
+                <div class="pdf-download">
+                    <f:translate key="download"/>&nbsp;
+                    <a href="{file.publicUrl}" title="{file.description}" target="_blank">
+                        <f:if condition="{file.title}">
+                            <f:then>{file.title}</f:then>
+                            <f:else>{file.name}</f:else>
+                        </f:if>
+                    </a>
+                </div>
+            </f:if>
+
+        </div>
+    </f:section>
+
+    <f:section name="pdfImage">
+        <img src="{pdf.picurl}" width="{pdf.imgWidth}px" height="{pdf.imgHeight}px" title="{file.description}" alt="{file.alternative}" {pdf.additionalparams}/>
+    </f:section>
+
 </div>
-<f:if condition="{pdf.imageNavigation.position}=='bottom'">
-	<f:render partial="ImageNavigation" arguments="{pdf:pdf}" />
-</f:if>
-<f:if condition="{pdf.displayDownloadAdvice}">
-	<div class="pdf-download" style="width: {pdf.imgWidth}px;">
-		<f:translate key="download" /> <f:format.raw value="{pdf.downloadLink}" />
-	</div>
-</f:if>
-</f:section>
+
