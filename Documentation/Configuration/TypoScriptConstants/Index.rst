@@ -92,19 +92,4 @@ path:
    Default
          disabled
 
-
-.. container:: table-row
-
-   Property
-         addResponsiveCss
-
-   Data type
-         boolean
-
-   Description
-         Add css code to make jh_pdfviewer responsive.
-
-   Default
-         FALSE
-
 .. ###### END~OF~TABLE ######

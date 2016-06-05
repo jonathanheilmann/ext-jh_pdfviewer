@@ -36,133 +36,64 @@ plugin.tx_jhpdfviewer {
 }
 
 plugin.tx_jhpdfviewer._CSS_DEFAULT_STYLE (
-	.tx-jh-pdfviewer {float: left; clear: both;}
+    .tx-jh-pdfviewer {}
 
-	.tx-jh-pdfviewer .pdf-header {
-		float: left;
-		clear: both;
-		text-align: left;
-		background-color: #ededed;
-		padding: 2px 4px 0px 4px;
-	}
-	.tx-jh-pdfviewer span.title {font-size:110%;font-weight:bold;padding-right:12px;}
-	.tx-jh-pdfviewer span.pagelabel {font-size:85%;font-weight:bold;font-style:italic;}
-	.tx-jh-pdfviewer span.page {font-size:85%;font-weight:bold;font-style:italic;}
-	.tx-jh-pdfviewer span.pageslabel {font-size:85%;font-weight:bold;font-style:italic;}
-	.tx-jh-pdfviewer span.pages {font-size:85%;font-weight:bold;font-style:italic;}
-	.tx-jh-pdfviewer span.navigation {float: right;}
+    .tx-jh-pdfviewer .container {
+        max-width: 100% !important;
+        background-color: #ededed;
+        border: 4px solid #ededed;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;         /* Opera/IE 8+ */
+    }
 
-	.tx-jh-pdfviewer .pdf-image-navigation-wrapper {
-		float: left;
-		border-right: 4px solid #ededed;
-		border-left: 4px solid #ededed;
-	}
-	.tx-jh-pdfviewer .pdf-image-navigation {
-		display: inline-block;
-		position: relative;
-		float: left;
-		background-color: #f9f9f9;
-	}
-	.tx-jh-pdfviewer .pdf-image-navigation.right {float:right;}
-	.tx-jh-pdfviewer .pdf-image-navigation.left {clear:left;}
-	.tx-jh-pdfviewer .pdf-image-navigation .scrolls.top, .tx-jh-pdfviewer .pdf-image-navigation .scrolls.bottom {overflow-x:scroll;overflow-y:hidden;}
-	.tx-jh-pdfviewer .pdf-image-navigation .scrolls.right, .tx-jh-pdfviewer .pdf-image-navigation .scrolls.left {overflow-x:hidden;overflow-y:scroll;}
-	.tx-jh-pdfviewer .pdf-image-navigation .imagelist img {display:inline-block;}
+    .tx-jh-pdfviewer .pdf-header,
+    .tx-jh-pdfviewer .pdf-download {
+        display: block;
+        width: 100%;
+    }
+    .tx-jh-pdfviewer .pdf-header > * {
+        padding-bottom: 4px;
+        display: inline-block;
+    }
 
-	.tx-jh-pdfviewer .pdf-image {
-		float: left;
-		clear: both;
-		border: 4px solid #ededed;
-		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-		box-sizing: border-box;         /* Opera/IE 8+ */
-	}
-	.tx-jh-pdfviewer .pdf-image img {margin:0;padding:0;}
+    .tx-jh-pdfviewer span.title {font-size:110%;font-weight:bold;padding-right:12px;}
+    .tx-jh-pdfviewer span.pagelabel {font-size:85%;font-weight:bold;font-style:italic;}
+    .tx-jh-pdfviewer span.page {font-size:85%;font-weight:bold;font-style:italic;}
+    .tx-jh-pdfviewer span.pageslabel {font-size:85%;font-weight:bold;font-style:italic;}
+    .tx-jh-pdfviewer span.pages {font-size:85%;font-weight:bold;font-style:italic;}
+    .tx-jh-pdfviewer span.navigation {float: right;}
 
-	.tx-jh-pdfviewer .pdf-download {
-		float: left;
-		clear: both;
-		text-align: left;
-		background-color: #ededed;
-		padding: 0px 4px 2px 4px;
-	}
+    .tx-jh-pdfviewer .pdf-image-navigation-wrapper {
+        display: inline-block;
+        max-width: 100%;
+        padding-bottom: 4px;
+    }
+    .tx-jh-pdfviewer .pdf-image-navigation {
+        display: inline-block;
+        position: relative;
+        background-color: #f9f9f9;
+        width: 100%;
+        max-width: 100%;
+        font-size: 0;
+    }
+    .tx-jh-pdfviewer .pdf-image-navigation .scrolls.top,
+    .tx-jh-pdfviewer .pdf-image-navigation .scrolls.bottom {
+        overflow-x:scroll;
+        overflow-y:hidden;
+    }
+    .tx-jh-pdfviewer .pdf-image-navigation .imagelist img {display:inline-block;}
+
+    .tx-jh-pdfviewer .pdf-image {
+        display: inline-block;
+        max-width: 100% !important;
+        padding-bottom: 2px;
+    }
+    .tx-jh-pdfviewer .pdf-image img {margin:0;padding:0;}
+    .tx-jh-pdfviewer .pdf-image img[width]{
+        max-width: 100% !important;
+    }
+    .tx-jh-pdfviewer .pdf-image img[height]{
+        height: auto !important;
+    }
 )
-
-# Config tx_news if support is set
-[globalVar = LIT:1 = {$plugin.tx_jhpdfviewer.settings.addResponsiveCss}]
-	plugin.tx_jhpdfviewer._CSS_DEFAULT_STYLE (
-		.tx-jh-pdfviewer {
-			display: block;
-		}
-
-		.tx-jh-pdfviewer .pdf-header {
-			text-align: left;
-			background-color: #ededed;
-			padding: 2px 4px 0px 4px;
-		}
-		.tx-jh-pdfviewer span.title {font-size:110%;font-weight:bold;padding-right:12px;}
-		.tx-jh-pdfviewer span.pagelabel {font-size:85%;font-weight:bold;font-style:italic;}
-		.tx-jh-pdfviewer span.page {font-size:85%;font-weight:bold;font-style:italic;}
-		.tx-jh-pdfviewer span.pageslabel {font-size:85%;font-weight:bold;font-style:italic;}
-		.tx-jh-pdfviewer span.pages {font-size:85%;font-weight:bold;font-style:italic;}
-		.tx-jh-pdfviewer span.navigation {float: right;}
-
-		.tx-jh-pdfviewer .pdf-image-navigation-wrapper {
-			float: left;
-			border-right: 4px solid #ededed;
-			border-left: 4px solid #ededed;
-		}
-		.tx-jh-pdfviewer .pdf-image-navigation {
-			display: inline-block;
-			position: relative;
-			float: left;
-			background-color: #f9f9f9;
-		}
-		.tx-jh-pdfviewer .pdf-image-navigation.right {float:right;}
-		.tx-jh-pdfviewer .pdf-image-navigation.left {clear:left;}
-		.tx-jh-pdfviewer .pdf-image-navigation .scrolls.top, .tx-jh-pdfviewer .pdf-image-navigation .scrolls.bottom {overflow-x:scroll;overflow-y:hidden;}
-		.tx-jh-pdfviewer .pdf-image-navigation .scrolls.right, .tx-jh-pdfviewer .pdf-image-navigation .scrolls.left {overflow-x:hidden;overflow-y:scroll;}
-		.tx-jh-pdfviewer .pdf-image-navigation .imagelist img {display:inline-block;}
-
-		.tx-jh-pdfviewer .pdf-image {
-			float: left;
-			border: 4px solid #ededed;
-			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-			box-sizing: border-box;         /* Opera/IE 8+ */
-		}
-		.tx-jh-pdfviewer .pdf-image img {margin:0;padding:0;}
-
-		.tx-jh-pdfviewer .pdf-download {
-			text-align: left;
-			background-color: #ededed;
-			padding: 0px 4px 2px 4px;
-		}
-		/* make it responsive */
-		@media screen and (max-width: 960px)  {
-			.tx-jh-pdfviewer .pdf-header[style],
-			.tx-jh-pdfviewer .pdf-image-navigation-wrapper[style],
-			.tx-jh-pdfviewer .pdf-image-navigation[style],
-			.tx-jh-pdfviewer .pdf-download[style] {
-				width: 100% !important;
-			}
-			.tx-jh-pdfviewer .pdf-header,
-			.tx-jh-pdfviewer .pdf-image-navigation-wrapper,
-			.tx-jh-pdfviewer .pdf-image-navigation,
-			.tx-jh-pdfviewer .pdf-download {
-				-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-				-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-				box-sizing: border-box;         /* Opera/IE 8+ */
-			}
-			.tx-jh-pdfviewer .pdf-image {
-				width: 100% !important;
-			}
-			.tx-jh-pdfviewer .pdf-image img[width]{
-				width: 100% !important;
-			}
-			.tx-jh-pdfviewer .pdf-image img[height]{
-				height: auto !important;
-			}
-		}
-	)
-[global]

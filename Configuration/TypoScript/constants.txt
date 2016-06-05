@@ -27,7 +27,5 @@ plugin.tx_jhpdfviewer {
 			# cat=plugin.tx_jhpdfviewer/viewer/0030; type=string; label= Additional parameter of output picture (e.g. class=pdf-picture)
 			addparams =
 		}
-		# cat=plugin.tx_jhpdfviewer/viewer/0900; type=boolean; label= Add css code to make jh_pdfviewer responsive
-		addResponsiveCss = 0
 	}
 }
