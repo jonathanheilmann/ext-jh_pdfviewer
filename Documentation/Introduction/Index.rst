@@ -33,5 +33,5 @@ Screenshot
 Contribute
 ----------
 
-Feel free to contribute to this extension within TYPO3 Forge: `http://forge.typo3.org/projects/extension-jh_pdfviewer/
-<http://forge.typo3.org/projects/extension-jh_pdfviewer/>`_.
+Feel free to contribute to this extension within GitHub: `https://github.com/jonathanheilmann/ext-jh_pdfviewer
+<https://github.com/jonathanheilmann/ext-jh_pdfviewer>`_.
