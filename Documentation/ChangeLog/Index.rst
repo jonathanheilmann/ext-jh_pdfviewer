@@ -23,6 +23,18 @@ ChangeLog
          Changes
 
  - :Version:
+         1.0.2
+
+   :Changes:
+         \* [BUG] TypolinkViewHelper problem
+
+ - :Version:
+         1.0.1
+
+   :Changes:
+         \* Fixes documentation
+
+ - :Version:
          1.0.0
 
    :Changes:
