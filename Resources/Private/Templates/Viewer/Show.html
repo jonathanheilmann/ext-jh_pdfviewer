@@ -89,12 +89,12 @@
                             })(window.jQuery);
                         </h:pageRenderer.addJsInlineCode>
                     </f:case>
-                    <f:case default="true">
+                    <f:case value="" default="true">
                         <f:if condition="{file.link}">
                             <f:then>
-                                <f:link.typolink parameter="{file.link}">
+                                <h:link.typolink parameter="{file.link}">
                                     <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
-                                </f:link.typolink>
+                                </h:link.typolink>
                             </f:then>
                             <f:else>
                                 <f:render section="pdfImage" arguments="{pdf: pdf, file: file}" />
